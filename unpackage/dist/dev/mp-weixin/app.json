@@ -5,10 +5,18 @@
     "pages/cart/cart",
     "pages/my/my"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "subpkg",
+      "pages": [
+        "goods_detail/goods_detail",
+        "goods_list/goods_list"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "找不到工作",
+    "navigationBarTitleText": "黑马优购",
     "navigationBarBackgroundColor": "#C00000",
     "backgroundColor": "#FFFFFF"
   },

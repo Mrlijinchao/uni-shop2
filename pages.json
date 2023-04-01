@@ -3,7 +3,6 @@
             "path" : "pages/home/home",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
@@ -12,7 +11,6 @@
             "path" : "pages/cate/cate",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
@@ -21,7 +19,6 @@
             "path" : "pages/cart/cart",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
@@ -30,15 +27,36 @@
             "path" : "pages/my/my",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
         }
     ],
+	
+	"subPackages": [
+		{
+			"root": "subpkg",
+			"pages": [{
+                    "path" : "goods_detail/goods_detail",
+                    "style" : {}
+                
+                }
+                ,{
+                    "path" : "goods_list/goods_list",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
+		}
+	],
+	
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "找不到工作",
+		"navigationBarTitleText": "黑马优购",
 		"navigationBarBackgroundColor": "#C00000",
 		"backgroundColor": "#FFFFFF"
 	},
