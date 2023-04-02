@@ -3,5 +3,18 @@
   "projectname": "uni-shop-2",
   "setting": {
     "compileHotReLoad": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "分类页面调试",
+          "pathName": "pages/cate/cate",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
   }
 }
