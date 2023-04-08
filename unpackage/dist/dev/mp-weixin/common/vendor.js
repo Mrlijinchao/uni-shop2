@@ -12923,7 +12923,11 @@ var _default = {
   // 数据
   state: function state() {
     return {
-      address: JSON.parse(uni.getStorageSync('address') || '{}')
+      address: JSON.parse(uni.getStorageSync('address') || '{}'),
+      token: uni.getStorageSync('token') || '',
+      userInfo: JSON.parse(uni.getStorageSync('userInfo') || '{}'),
+      // 重定向的 object 对象
+      redirectInfo: null
     };
   },
   // 方法
@@ -12935,6 +12939,23 @@ var _default = {
     },
     saveAddressToStorage: function saveAddressToStorage(state) {
       uni.setStorageSync('address', JSON.stringify(state.address));
+    },
+    updateUserInfo: function updateUserInfo(state, userInfo) {
+      state.userInfo = userInfo;
+      this.commit('m_user/saveUserInfoToStorage');
+    },
+    saveUserInfoToStorage: function saveUserInfoToStorage(state) {
+      uni.setStorageSync('userInfo', JSON.stringify(state.userInfo));
+    },
+    updateToken: function updateToken(state, token) {
+      state.token = token;
+      this.commit('m_user/saveTokenToStorage');
+    },
+    saveTokenToStorage: function saveTokenToStorage(state) {
+      uni.setStorageSync('token', state.token);
+    },
+    updateRedirectInfo: function updateRedirectInfo(state, info) {
+      state.redirectInfo = info;
     }
   },
   getters: {

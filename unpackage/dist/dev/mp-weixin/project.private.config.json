@@ -16,7 +16,7 @@
         },
         {
           "name": "",
-          "pathName": "pages/cart/cart",
+          "pathName": "pages/my/my",
           "query": "",
           "launchMode": "default",
           "scene": null
