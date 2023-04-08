@@ -37,7 +37,35 @@
 </template>
 
 <script>
+	import {mapState, mapMutations,mapGetters} from 'vuex'
+	
 	export default {
+		
+		computed: {
+			...mapState('m_cart',[]),
+			...mapGetters('m_cart',['total'])
+		},
+		
+		watch: {
+			// total(newVal){
+				// const findResult = this.options.find(x => x.text === '购物车')
+				// if(findResult){
+				// 	findResult.info = newVal
+				// }
+			// }
+			
+			total: {
+				handler(newVal){
+					const findResult = this.options.find(x => x.text === '购物车')
+					if(findResult){
+						findResult.info = newVal
+					}
+				},
+				immediate: true
+			}
+			
+		},
+		
 		data() {
 			return {
 				goods_info: [],
@@ -49,7 +77,7 @@
 						}, {
 							icon: 'cart',
 							text: '购物车',
-							info: 2
+							info: 0
 						}],
 					    buttonGroup: [{
 					      text: '加入购物车',
@@ -71,6 +99,9 @@
 		},
 		
 		methods: {
+			
+			...mapMutations('m_cart',['addToCart']),
+			
 			async getGoodsDetail(goods_id){
 				const {data: res} = await uni.$http.get('/api/public/v1/goods/detail',{goods_id})
 				if(res.meta.status !== 200) return uni.$showMsg()
@@ -91,7 +122,24 @@
 						url: '/pages/cart/cart'
 					})
 				}
+			},
+			
+			buttonClick(e){
+				if(e.content.text === '加入购物车'){
+					//组织商品的信息对象
+					const goods = {
+						goods_id: this.goods_info.goods_id,
+						goods_name: this.goods_info.goods_name,
+						goods_price: this.goods_info.goods_price,
+						goods_count: 1,
+						goods_small_logo: this.goods_info.goods_small_logo,
+						goods_state: true
+					}
+					//调用addToCart方法
+					this.addToCart(goods)
+				}
 			}
+			
 			
 		}
 		
